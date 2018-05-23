@@ -6,8 +6,12 @@
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="MemoryPool.h" />
+    <ClInclude Include="Rtti.h" />
+    <ClInclude Include="Utility.h" />
+    <ClInclude Include="EngineMacro.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MemoryPool.cpp" />
+    <ClCompile Include="Rtti.cpp" />
   </ItemGroup>
 </Project>
