@@ -14,10 +14,22 @@ namespace SWE
 		unsigned int GetParentNum() const { return m_uiBaseClassesNum; }
 		bool IsExactType(const Rtti& type) const;
 		bool IsKindOf(const Rtti& type) const;
+		template <class T> T* DynamicCast(const Rtti& type, void* pObj) const;
 
 	private:
 		std::string m_strName;
 		unsigned int m_uiBaseClassesNum;
 		Rtti** m_ppBaseClasses;
 	};
+
+	template <class T>
+	T*	Rtti::DynamicCast(const Rtti& type, void* pObj) const
+	{
+		if (IsKindOf(type))
+		{
+			return static_cast<T*>(pObj);
+		}
+
+		return nullptr;
+	}
 }

@@ -24,12 +24,16 @@
     <ClInclude Include="IRuntimeModule.h" />
     <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="MemoryPool.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="Reference.h" />
     <ClInclude Include="Rtti.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MemoryPool.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Reference.cpp" />
     <ClCompile Include="Rtti.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
