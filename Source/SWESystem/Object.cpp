@@ -2,12 +2,6 @@
 
 using namespace SWE;
 
-SWE::Object::Object()
-{
+IMPLEMENT_RTTI_0(Object)
 
-}
-
-SWE::Object::~Object()
-{
-
-}
+MemoryManager Object::m_memoryManager;

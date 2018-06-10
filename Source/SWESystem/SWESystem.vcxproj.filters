@@ -11,11 +11,13 @@
     <ClInclude Include="EngineMacro.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Reference.h" />
+    <ClInclude Include="SmartPoint.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MemoryPool.cpp" />
     <ClCompile Include="Rtti.cpp" />
     <ClCompile Include="Reference.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="MemoryManager.cpp" />
   </ItemGroup>
 </Project>
