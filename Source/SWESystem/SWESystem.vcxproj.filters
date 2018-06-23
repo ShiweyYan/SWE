@@ -11,7 +11,10 @@
     <ClInclude Include="EngineMacro.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Reference.h" />
-    <ClInclude Include="SmartPoint.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="SceneNodeComponent.h" />
+    <ClInclude Include="SmartPointer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MemoryPool.cpp" />
@@ -19,5 +22,8 @@
     <ClCompile Include="Reference.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="MemoryManager.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="SceneNodeComponent.cpp" />
   </ItemGroup>
 </Project>

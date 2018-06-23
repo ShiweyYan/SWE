@@ -9,9 +9,9 @@ namespace SWE
 		Rtti(std::string strName, unsigned int  uiBaseClassesNum = 0, ...);
 		~Rtti();
 
-		std::string GetName() const { return m_strName; }
-		Rtti** GetParent() const { return m_ppBaseClasses; }
-		unsigned int GetParentNum() const { return m_uiBaseClassesNum; }
+		inline std::string GetName() const { return m_strName; }
+		inline Rtti** GetParent() const { return m_ppBaseClasses; }
+		inline unsigned int GetParentNum() const { return m_uiBaseClassesNum; }
 		bool IsExactType(const Rtti& type) const;
 		bool IsKindOf(const Rtti& type) const;
 		template <class T> T* DynamicCast(const Rtti& type, void* pObj) const;

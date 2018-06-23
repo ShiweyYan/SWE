@@ -26,3 +26,6 @@ public:\
 #define DYNAMIC_CAST(className, pObj) \
 	pObj->GetRTTI().DynamicCast<className>(className::RTTI, pObj)
 //RTTI End
+
+#define SMART_POINTER(ClassName) \
+	typedef SmartPointer<ClassName> ClassName##Ptr;
