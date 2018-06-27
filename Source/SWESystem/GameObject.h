@@ -1,11 +1,12 @@
 #pragma once
+#include "SWESystem.h"
 #include "Object.h"
 #include "Component.h"
 #include "SmartPointer.h"
 
 namespace SWE
 {
-	class GameObject : public Object
+	class SWESYSTEM_API GameObject : public Object
 	{
 		DECLEAR_RTTI
 	public:

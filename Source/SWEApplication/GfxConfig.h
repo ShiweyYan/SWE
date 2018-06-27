@@ -4,7 +4,7 @@ using std::ostream;
 
 namespace SWE
 {
-	struct GfxConfig
+	struct  GfxConfig
 	{
 		GfxConfig() :redBits(8), greenBits(8), blueBits(8), alphaBits(8), depthBits(24), stencilBits(8), screenWidth(800), screenHeight(600), IsFullScreen(false), msaaSamples(8) {}
 

@@ -9,7 +9,7 @@
 //#include "GameLogic.hpp"
 
 namespace SWE {
-	class BaseApplication: public IApplication
+	class  BaseApplication: public IApplication
 	{
 	public:
 		BaseApplication();

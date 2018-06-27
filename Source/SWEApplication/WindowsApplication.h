@@ -5,7 +5,7 @@
 #include "GfxConfig.h"
 
 namespace SWE {
-	class WindowsApplication : public BaseApplication
+	class  WindowsApplication : public BaseApplication
 	{
 	public:
 		WindowsApplication(GfxConfig gfxCfg):m_kGfxConfig(gfxCfg){};

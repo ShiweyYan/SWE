@@ -1,5 +1,6 @@
 #pragma once
 //Object类实现引擎基础功能
+#include "SWESystem.h"
 #include "Reference.h"
 #include "Rtti.h"
 #include "EngineMacro.h"
@@ -7,7 +8,7 @@
 
 namespace SWE
 {
-	class Object: public Reference
+	class SWESYSTEM_API Object: public Reference
 	{
 		DECLEAR_RTTI
 	public:

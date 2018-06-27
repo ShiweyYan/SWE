@@ -3,7 +3,7 @@
 namespace SWE {
 #define Interface class
 
-	Interface IApplication
+	Interface  IApplication
 	{
 	public:
 		virtual int Initialize() = 0;

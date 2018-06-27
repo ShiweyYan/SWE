@@ -7,7 +7,7 @@
 using namespace SWE;
 using namespace std;
 
-int main(int argc, char** argv) {
+int  main(int argc, char** argv) {
 	int ret;
 
 	g_pApp->SetCommandLineParameters(argc, argv);

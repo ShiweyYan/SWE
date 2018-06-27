@@ -1,11 +1,12 @@
 #pragma once
 #include <cstdint>
+#include "SWESystem.h"
 //copy from http://allenchou.net/2013/05/memory-management-part-1-of-3-the-allocator/, https://zhuanlan.zhihu.com/p/29023579
 //expand some func by shiweyyan
 
 namespace SWE
 {
-	class MemoryPool
+	class SWESYSTEM_API MemoryPool
 	{
 	public:
 		// debug patterns

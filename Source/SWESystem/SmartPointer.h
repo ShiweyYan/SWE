@@ -1,10 +1,11 @@
 #pragma once
+#include "Component.h"
 //只有继承了Reference的类才能使用该智能指针
 
 namespace SWE
 {
 	template<class T>
-	class SmartPointer
+	class SWESYSTEM_API SmartPointer
 	{
 	public:
 		SmartPointer(T* pRaw = nullptr):

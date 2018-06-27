@@ -1,10 +1,7 @@
-#include "WindowsApplication.h"
 #include <tchar.h>
+#include "WindowsApplication.h"
 
 using namespace SWE;
-
-//extern IApplication*    g_pApp;
-//extern BaseApplication* g_pApp;
 
 void WindowsApplication::CreateMainWindow()
 {
@@ -32,7 +29,7 @@ void WindowsApplication::CreateMainWindow()
 	// create the window and use the result as the handle
 	m_hWnd = CreateWindowEx(0,
 		_T("Demo_Win"),      // name of the window class
-		L"Demo_Win"/*m_Config.appName*/,                 // title of the window
+		_T("Demo_Win")/*m_Config.appName*/,                 // title of the window
 		WS_OVERLAPPEDWINDOW,              // window style
 		CW_USEDEFAULT,                    // x-position of the window
 		CW_USEDEFAULT,                    // y-position of the window

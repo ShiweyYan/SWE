@@ -1,10 +1,11 @@
 #pragma once
+#include "SWESystem.h"
 #include "Interface.h"
 
 namespace SWE
 {
 
-	Interface IRuntimeModule
+	Interface SWESYSTEM_API IRuntimeModule
 	{
 	public:
 		virtual ~IRuntimeModule() {};

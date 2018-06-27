@@ -15,6 +15,7 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="SceneNodeComponent.h" />
     <ClInclude Include="SmartPointer.h" />
+    <ClInclude Include="SWESystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MemoryPool.cpp" />

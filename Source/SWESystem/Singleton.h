@@ -1,9 +1,10 @@
 #pragma once
+#include "Component.h"
 
 namespace SWE
 {
 	template <typename T>
-	class Singleton
+	class SWESYSTEM_API Singleton
 	{
 	public:
 		~Singleton(void)

@@ -1,10 +1,11 @@
 #pragma once
+#include "SWESystem.h"
 #include "MemoryPool.h"
 //可能会存在多个不同的内存管理器,方便特殊化和内存统计,例如所有继承自object的对象拥有一个内存管理器,普通类拥有另一个内存管理器等
 
 namespace SWE
 {
-	class MemoryManager
+	class SWESYSTEM_API MemoryManager
 	{
 	public:
 		MemoryManager();
