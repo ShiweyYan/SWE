@@ -5,6 +5,7 @@
 #include "Rtti.h"
 #include "EngineMacro.h"
 #include "MemoryManager.h"
+#include "SmartPointer.h"
 
 namespace SWE
 {
@@ -36,4 +37,6 @@ namespace SWE
 	private:
 		static MemoryManager m_memoryManager;
 	};
+
+	SMART_POINTER(Object)
 }

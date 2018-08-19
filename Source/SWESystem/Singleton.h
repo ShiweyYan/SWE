@@ -28,7 +28,7 @@ namespace SWE
 			return m_pSingleton;
 		}
 
-	private:
+	protected:
 		Singleton(void) = default;
 
 		//µ¥Àý½ûÖ¹¿½±´ºÍ¸³Öµ

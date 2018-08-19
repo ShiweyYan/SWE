@@ -15,6 +15,13 @@ SWE::MemoryPool::MemoryPool(size_t dataSize, size_t pageSize, size_t alignment):
 	Reset(dataSize, pageSize, alignment);
 }
 
+SWE::MemoryPool::MemoryPool():
+	m_pFreeList(nullptr),
+	m_pPageList(nullptr)
+{
+
+}
+
 SWE::MemoryPool::~MemoryPool()
 {
 	FreeAll();
@@ -101,12 +108,15 @@ void SWE::MemoryPool::Free(void* pVoid)
 
 void SWE::MemoryPool::FreeAll()
 {
-	PageHeader* pPage = m_pPageList;
-	while (pPage) {
-		PageHeader* _p = pPage;
-		pPage = pPage->pNext;
+	if (m_pFreeList)
+	{
+		PageHeader* pPage = m_pPageList;
+		while (pPage) {
+			PageHeader* _p = pPage;
+			pPage = pPage->pNext;
 
-		delete[] reinterpret_cast<uint8_t*>(_p);
+			delete[] reinterpret_cast<uint8_t*>(_p);
+		}
 	}
 
 	m_pPageList = nullptr;

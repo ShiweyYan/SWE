@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{750df0c3-6c24-44bc-8af4-66113e3d1bd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX11Renderer">
+      <UniqueIdentifier>{fcc57f3c-d3e2-458e-820c-406a57b182f3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Renderer\RendererDesc.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\SWERenderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11Renderer\DX11Renderer.h">
+      <Filter>DX11Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11Renderer\DX11RendererUtility.h">
+      <Filter>DX11Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11Renderer\DX11TypeDefine.h">
+      <Filter>DX11Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11Renderer\DX11DepthStencilBuffer.h">
+      <Filter>DX11Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11Renderer\DX11RenderTexture.h">
+      <Filter>DX11Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11Renderer\DX11RenderTarget.h">
+      <Filter>DX11Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\Texture.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\Renderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\RenderTarget.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\RenderFactory.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11Renderer\DX11Texture.h">
+      <Filter>DX11Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\RenderState.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DX11Renderer\DX11Renderer.cpp">
+      <Filter>DX11Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="DX11Renderer\DX11DepthStencilBuffer.cpp">
+      <Filter>DX11Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="DX11Renderer\DX11RenderTexture.cpp">
+      <Filter>DX11Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="DX11Renderer\DX11RenderTarget.cpp">
+      <Filter>DX11Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\Renderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\RenderTarget.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\RenderFactory.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\Texture.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\RenderState.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

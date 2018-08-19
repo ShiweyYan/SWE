@@ -27,7 +27,7 @@ namespace SWE
 		};
 
 	public:
-		MemoryPool() = default;
+		MemoryPool();
 		MemoryPool(size_t dataSize, size_t pageSize, size_t alignment);
 		~MemoryPool();
 
