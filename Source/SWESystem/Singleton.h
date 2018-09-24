@@ -1,10 +1,10 @@
 #pragma once
-#include "Component.h"
+#include "MemObject.h"
 
 namespace SWE
 {
 	template <typename T>
-	class SWESYSTEM_API Singleton
+	class SWESYSTEM_API Singleton : public MemObject
 	{
 	public:
 		~Singleton(void)

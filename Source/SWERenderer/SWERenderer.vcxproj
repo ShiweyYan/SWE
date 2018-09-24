@@ -26,24 +26,12 @@
     <ClInclude Include="DX11Renderer\DX11RenderTarget.h" />
     <ClInclude Include="DX11Renderer\DX11Texture.h" />
     <ClInclude Include="DX11Renderer\DX11TypeDefine.h" />
-    <ClInclude Include="Renderer\RenderFactory.h" />
-    <ClInclude Include="Renderer\RenderState.h" />
-    <ClInclude Include="Renderer\RenderTarget.h" />
-    <ClInclude Include="Renderer\Renderer.h" />
-    <ClInclude Include="Renderer\RendererDesc.h" />
-    <ClInclude Include="Renderer\SWERenderer.h" />
-    <ClInclude Include="Renderer\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX11Renderer\DX11DepthStencilBuffer.cpp" />
     <ClCompile Include="DX11Renderer\DX11Renderer.cpp" />
     <ClCompile Include="DX11Renderer\DX11RenderTexture.cpp" />
     <ClCompile Include="DX11Renderer\DX11RenderTarget.cpp" />
-    <ClCompile Include="Renderer\Renderer.cpp" />
-    <ClCompile Include="Renderer\RenderFactory.cpp" />
-    <ClCompile Include="Renderer\RenderState.cpp" />
-    <ClCompile Include="Renderer\RenderTarget.cpp" />
-    <ClCompile Include="Renderer\Texture.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

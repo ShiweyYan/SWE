@@ -1,10 +1,10 @@
 #pragma once
 #include <string>
-#include "SWESystem.h"
+#include "MemObject.h"
 
 namespace SWE
 {
-	class SWESYSTEM_API Rtti
+	class SWESYSTEM_API Rtti : public MemObject
 	{
 	public:
 		Rtti(std::string strName, unsigned int  uiBaseClassesNum = 0, ...);

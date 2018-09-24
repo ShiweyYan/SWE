@@ -1,10 +1,10 @@
 #pragma once
 #include "SWESystem.h"
-#include "SWESystem.h"
+#include "MemObject.h"
 
 namespace SWE
 {
-	class SWESYSTEM_API Reference
+	class SWESYSTEM_API Reference : public MemObject
 	{
 	public:
 		Reference();

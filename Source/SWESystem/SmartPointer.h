@@ -1,11 +1,11 @@
 #pragma once
-#include "Component.h"
 //只有继承了Reference的类才能使用该智能指针
+#include "MemObject.h"
 
 namespace SWE
 {
 	template<class T>
-	class SWESYSTEM_API SmartPointer
+	class  SmartPointer : public MemObject//SWESYSTEM_API
 	{
 	public:
 		SmartPointer(T* pRaw = nullptr):
@@ -46,6 +46,16 @@ namespace SWE
 			if (this == &spOther)
 			{
 				return *this;
+			}
+
+			if (m_pRawPointer)
+			{
+				m_pRawPointer->DecRef();
+				if (m_pRawPointer->GetReferenceCount() == 0)
+				{
+					delete m_pRawPointer;
+					m_pRawPointer = nullptr;
+				}
 			}
 
 			m_pRawPointer = spOther.m_pRawPointer;
