@@ -1,10 +1,10 @@
 #pragma once
-#include "SWERenderer/Renderer/SWERenderer.h"
+#include "SWECore/SWECore.h"
 #include "SWESystem/Object.h"
 
 namespace SWE
 {
-	class SWERenderer_API RenderState : public Object
+	class SWECORE_API RenderState : public Object
 	{
 		DECLEAR_RTTI
 	public:

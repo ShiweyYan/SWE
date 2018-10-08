@@ -1,22 +1,28 @@
 #pragma once
-#include "SWERenderer/Renderer/SWERenderer.h"
+#include "SWECore/SWECore.h"
+#include "SWECore/Renderer/RendererDesc.h"
 #include "SWESystem/Object.h"
+#include "SWESystem/Singleton.h"
 
 namespace SWE
 {
 	enum RENDERER_TYPE
 	{
-		RT_D3D11 = 0,
+		RT_NONE = 0,
+		RT_D3D11 = 1,
 	};
 
-	class SWERenderer_API Renderer : public Object
+	class SWECORE_API Renderer : public Object, public Singleton<Renderer>
 	{
 		DECLEAR_RTTI
+		friend Singleton<Renderer>;
 	public:
+		virtual void Init(RendererDesc desc) {};
+		virtual RENDERER_TYPE GetType() { return RT_NONE; };
+
+	protected:
+		Renderer() = default;
 		virtual ~Renderer() {}
-
-		virtual RENDERER_TYPE GetType() const = 0;
-
 	};
 
 	SMART_POINTER(Renderer)

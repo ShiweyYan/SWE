@@ -5,6 +5,8 @@
 #include <assert.h>
 using std::wstring;
 
+#define UNUSED(x) (void)(x);
+
 #define HRESULT_ASSERT(x) FAILED(x)?assert(false):assert(true) 
 #define HRESULT_RETURN(x) if(FAILED(x)){return false;} else{return true;}
 

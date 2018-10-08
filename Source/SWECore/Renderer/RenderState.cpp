@@ -1,4 +1,4 @@
-#include "SWERenderer/Renderer/RenderState.h"
+#include "SWECore/Renderer/RenderState.h"
 
 using namespace SWE;
 

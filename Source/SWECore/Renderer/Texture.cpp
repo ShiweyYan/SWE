@@ -1,4 +1,4 @@
-#include "SWERenderer/Renderer/Texture.h"
+#include "SWECore/Renderer/Texture.h"
 
 using namespace SWE;
 

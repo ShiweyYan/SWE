@@ -1,4 +1,4 @@
-#include "SWERenderer/Renderer/Renderer.h"
+#include "SWECore/Renderer/Renderer.h"
 
 using namespace SWE;
 

@@ -1,25 +1,30 @@
 #pragma once
 #include "MemObject.h"
+#include <assert.h>
 
 namespace SWE
 {
 	template <typename T>
-	class SWESYSTEM_API Singleton : public MemObject
+	class  Singleton : public MemObject
 	{
 	public:
-		~Singleton(void)
-		{
-			assert(m_pSingleton);
-			m_pSingleton = nullptr;
-		}
 
 		static T* CreateSingleton(void)
 		{
-			assert(!m_pSingleton)
+			assert(!m_pSingleton);
 
 			m_pSingleton = new T();
 
 			return static_cast<T*>(m_pSingleton);
+		}
+
+		static void Release()
+		{
+			if (m_pSingleton)
+			{
+				delete m_pSingleton;
+				m_pSingleton = nullptr;
+			}
 		}
 
 		static T* GetSingleton(void)
@@ -29,13 +34,16 @@ namespace SWE
 		}
 
 	protected:
-		Singleton(void) = default;
+		Singleton(void) {};
+		~Singleton(void) {};
 
 		//µ¥Àý½ûÖ¹¿½±´ºÍ¸³Öµ
 		Singleton(const Singleton<T> &) = delete;
 		Singleton& operator=(const Singleton<T> &) = delete;
 
-	protected:
 		static T* m_pSingleton;
 	};
+
+	template<class T>
+	T* Singleton<T>::m_pSingleton = nullptr;
 }

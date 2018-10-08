@@ -2,4 +2,4 @@
 
 using namespace SWE;
 
-MemoryManager Object::m_memoryManager;
+MemoryManager MemObject::m_memoryManager;

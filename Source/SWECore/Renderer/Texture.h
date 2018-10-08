@@ -1,10 +1,10 @@
 #pragma once
-#include "SWERenderer/Renderer/SWERenderer.h"
+#include "SWECore/SWECore.h"
 #include "SWESystem/Object.h"
 
 namespace SWE
 {
-	class SWERenderer_API Texture : public Object
+	class SWECORE_API Texture : public Object
 	{
 		DECLEAR_RTTI
 	public:
@@ -16,33 +16,34 @@ namespace SWE
 			ETT_CUBE,
 		};
 
-		Texture(ENUM_TEXTURE_TYPE type, unsigned int sampleCount, unsigned int sampleQuality);
+		Texture(ENUM_TEXTURE_TYPE type, uint32_t sampleCount, uint32_t sampleQuality);
 		virtual ~Texture();
 
-		unsigned int ArraySize() const { return m_uiArraySize; }
+		uint32_t ArraySize() const { return m_uiArraySize; }
 
-		unsigned int SampleCount() const { return m_uiSampleCount; }
+		uint32_t SampleCount() const { return m_uiSampleCount; }
 
-		unsigned int SampleQuality() const { return m_uiSampleQuality; }
+		uint32_t SampleQuality() const { return m_uiSampleQuality; }
 
-		ENUM_TEXTURE_TYPE GetTextureType() const { return m_eTextureType; }
+		virtual ENUM_TEXTURE_TYPE GetTextureType() const { return m_eTextureType; }
 
-		unsigned int NumMipMaps() const { return m_uiMipMapsNumbers; }
+		uint32_t NumMipMaps() const { return m_uiMipMapsNumbers; }
 
-		virtual unsigned int Width(unsigned int mipMapLevel) = 0;
-		virtual unsigned int Height(unsigned int mipMapLevel) = 0;
+		virtual uint32_t Width(uint32_t mipMapLevel = 0) = 0;
+		virtual uint32_t Height(uint32_t mipMapLevel = 0) = 0;
+		virtual uint32_t Depth(uint32_t mipMapLevel = 0) = 0;
 
 	protected:
 		ENUM_TEXTURE_TYPE m_eTextureType;
 
-		unsigned int m_uiMipMapsNumbers;
+		uint32_t m_uiMipMapsNumbers;
 
 		//采样数量和质量
-		unsigned int m_uiSampleCount;
-		unsigned int m_uiSampleQuality;
+		uint32_t m_uiSampleCount;
+		uint32_t m_uiSampleQuality;
 
 		//纹理数组大小
-		unsigned int m_uiArraySize;
+		uint32_t m_uiArraySize;
 	};
 
 	SMART_POINTER(Texture)

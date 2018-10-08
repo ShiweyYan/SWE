@@ -1,36 +1,13 @@
-#include "SWERenderer/DX11Renderer/DX11Renderer.h"
-#include "SWERenderer/DX11Renderer/DX11RenderTarget.h"
-#include "SWERenderer/DX11Renderer/DX11DepthStencilBuffer.h"
-#include "SWERenderer/DX11Renderer/DX11DepthStencilBuffer.h"
-#include "SWERenderer/DX11Renderer/DX11RenderTargetGroup.h"
-#include "SWERenderer/DX11Renderer/DX11RendererUtility.h"
+#include "SWEDX11Renderer/DX11Renderer.h"
+#include "SWEDX11Renderer/DX11RenderTarget.h"
+#include "SWEDX11Renderer/DX11DepthStencilBuffer.h"
+#include "SWEDX11Renderer/DX11DepthStencilBuffer.h"
+#include "SWEDX11Renderer/DX11RenderTargetGroup.h"
+#include "SWEDX11Renderer/DX11RendererUtility.h"
 
 using namespace SWE;
 
-DX11Renderer* DX11Renderer::m_pDX11Renderer = nullptr;
-
-DX11Renderer* SWE::DX11Renderer::Create(RendererDesc renderDesc, HWND hwnd)
-{
-	if (m_pDX11Renderer == nullptr)
-	{
-		m_pDX11Renderer = new DX11Renderer;
-		if (m_pDX11Renderer)
-		{
-			m_pDX11Renderer->Init(renderDesc, hwnd);
-			return m_pDX11Renderer;
-		}
-		return nullptr;
-	}
-	else
-	{
-		return m_pDX11Renderer;
-	}
-}
-
-DX11Renderer* SWE::DX11Renderer::Get()
-{
-	return m_pDX11Renderer;
-}
+IMPLEMENT_RTTI_1(DX11Renderer, Renderer)
 
 SWE::DX11Renderer::DX11Renderer()
 {
@@ -42,7 +19,7 @@ SWE::DX11Renderer::~DX11Renderer()
 
 }
 
-void SWE::DX11Renderer::Init(RendererDesc renderDesc, HWND hwnd)
+void SWE::DX11Renderer::Init(RendererDesc renderDesc)
 {
 	m_kSwapChainDesc.BufferCount = 1;
 	m_kSwapChainDesc.BufferDesc.Width = renderDesc.screenWidth;
@@ -58,7 +35,7 @@ void SWE::DX11Renderer::Init(RendererDesc renderDesc, HWND hwnd)
 	refreshRate.Denominator = 1;
 	m_kSwapChainDesc.BufferDesc.RefreshRate = refreshRate;
 	m_kSwapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-	m_kSwapChainDesc.OutputWindow = hwnd;
+	m_kSwapChainDesc.OutputWindow = renderDesc.hwnd;
 	m_kSwapChainDesc.SampleDesc.Count = renderDesc.msaaSamples;
 	m_kSwapChainDesc.SampleDesc.Quality = 0;//这里后边还要看下怎么设置
 	m_kSwapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;

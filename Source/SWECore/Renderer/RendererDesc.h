@@ -1,10 +1,16 @@
 #pragma once
-#include "SWERenderer/Renderer/SWERenderer.h"
+#include "SWECore/SWECore.h"
 #include <iostream>
+#include <windef.h>
 
-struct SWERenderer_API RendererDesc
+struct SWECORE_API RendererDesc
 {
-	RendererDesc() :redBits(8), greenBits(8), blueBits(8), alphaBits(8), depthBits(24), stencilBits(8), screenWidth(800), screenHeight(600), IsFullScreen(false), msaaSamples(8) {}
+	RendererDesc() :redBits(8), greenBits(8), blueBits(8), alphaBits(8), depthBits(24), stencilBits(8), screenWidth(800), screenHeight(600), IsFullScreen(false), msaaSamples(8)
+	{
+#ifdef _WIN32
+		hwnd = nullptr;
+#endif
+	}
 
 	unsigned short redBits;
 	unsigned short greenBits;
@@ -16,6 +22,10 @@ struct SWERenderer_API RendererDesc
 	int screenHeight;
 	bool IsFullScreen;
 	unsigned short msaaSamples;
+
+#ifdef _WIN32
+	HWND hwnd;
+#endif
 
 	friend std::ostream& operator << (std::ostream& out, RendererDesc& renderDesc)
 	{

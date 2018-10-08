@@ -1,5 +1,5 @@
 #pragma once
-#include "SWERenderer/Renderer/SWERenderer.h"
+#include "SWECore/SWECore.h"
 #include "SWESystem/Object.h"
 
 namespace SWE
@@ -14,7 +14,7 @@ namespace SWE
 
 	};
 
-	class SWERenderer_API RenderTarget : public Object
+	class SWECORE_API RenderTarget : public Object
 	{
 		DECLEAR_RTTI
 	public:

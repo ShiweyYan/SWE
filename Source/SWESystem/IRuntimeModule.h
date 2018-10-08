@@ -1,6 +1,7 @@
 #pragma once
 #include "SWESystem.h"
 #include "Interface.h"
+#include "Singleton.h"
 
 namespace SWE
 {

@@ -1,14 +1,15 @@
 #pragma once
-#include "SWERenderer/Renderer/SWERenderer.h"
+#include "SWECore/SWECore.h"
 #include "SWESystem/Object.h"
 #include "SWESystem/Singleton.h"
 
 namespace SWE
 {
-	class SWERenderer_API RenderFactory : public Object, public Singleton<RenderFactory>
+	class SWECORE_API RenderFactory : public Object, public Singleton<RenderFactory>
 	{
 		DECLEAR_RTTI
-	private:
+		friend Singleton<RenderFactory>;
+	protected:
 		RenderFactory();
 		virtual ~RenderFactory();
 
