@@ -15,7 +15,7 @@ namespace SWE
 
 			m_pSingleton = new T();
 
-			return static_cast<T*>(m_pSingleton);
+			return m_pSingleton;
 		}
 
 		static void Release()

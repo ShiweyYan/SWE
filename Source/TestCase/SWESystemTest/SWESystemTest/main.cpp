@@ -2,6 +2,7 @@
 #include "SmartPointer.h"
 #include <iostream>
 #include "Singleton.h"
+#include "../SWEMath/Float3.h"
 
 using namespace SWE;
 
@@ -21,6 +22,6 @@ int main()
 {
 	A::CreateSingleton();
 	A::Release();
-	std::cout << "Hello World!\n";
+
 	return 0;
 }
