@@ -2,4 +2,4 @@
 
 using namespace SWE;
 
-IMPLEMENT_RTTI_1(GraphicBuffer, Object)
+IMPLEMENT_RTTI_1(GraphicBuffer, GpuResource)

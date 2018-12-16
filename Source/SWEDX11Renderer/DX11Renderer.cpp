@@ -1,13 +1,16 @@
 #include "SWEDX11Renderer/DX11Renderer.h"
-#include "SWEDX11Renderer/DX11RenderTarget.h"
-#include "SWEDX11Renderer/DX11DepthStencilBuffer.h"
-#include "SWEDX11Renderer/DX11DepthStencilBuffer.h"
-#include "SWEDX11Renderer/DX11RenderTargetGroup.h"
 #include "SWEDX11Renderer/DX11RendererUtility.h"
 
 using namespace SWE;
 
 IMPLEMENT_RTTI_1(DX11Renderer, Renderer)
+
+SWE::Renderer* SWE::DX11Renderer::Create(const RendererDesc& desc)
+{
+	assert(m_pRenderer == nullptr);
+	m_pRenderer = new DX11Renderer();
+	return m_pRenderer;
+}
 
 SWE::DX11Renderer::DX11Renderer()
 {
@@ -64,38 +67,38 @@ void SWE::DX11Renderer::Init(RendererDesc renderDesc)
 	HRESULT result = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, featureLevels, sizeof(featureLevels) / sizeof(D3D_FEATURE_LEVEL),
 		D3D11_SDK_VERSION, &m_kSwapChainDesc, &pSwapChain, &pDevice, &m_eFeatureLevel, &pDeviceContext);
 	
-	HRESULT_ASSERT(result);
+	//HRESULT_ASSERT(result);
 
-	//初始化backbuffer
-	ID3D11Texture2D* backBuffer;
-	result = m_spSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&backBuffer);
-	HRESULT_ASSERT(result);
+	////初始化backbuffer
+	//ID3D11Texture2D* backBuffer;
+	//result = m_spSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&backBuffer);
+	//HRESULT_ASSERT(result);
 
-	DX11RenderTarget* pkRT = new DX11RenderTarget(backBuffer);
-	DX11DepthStencilBuffer* pkDS = new DX11DepthStencilBuffer(renderDesc.screenWidth, renderDesc.screenHeight);
-	m_pkRenderTargetGroup = new DX11RenderTargetGroup();
-	m_pkRenderTargetGroup->SetRT(pkRT);
-	m_pkRenderTargetGroup->SetDS(pkDS);
+	//DX11RenderTarget* pkRT = new DX11RenderTarget(backBuffer);
+	//DX11DepthStencilBuffer* pkDS = new DX11DepthStencilBuffer(renderDesc.screenWidth, renderDesc.screenHeight);
+	//m_pkRenderTargetGroup = new DX11RenderTargetGroup();
+	//m_pkRenderTargetGroup->SetRT(pkRT);
+	//m_pkRenderTargetGroup->SetDS(pkDS);
 
-	SetRenderTargetGroup(m_pkRenderTargetGroup);
+	//SetRenderTargetGroup(m_pkRenderTargetGroup);
 }
 
-void SWE::DX11Renderer::SetRenderTargetGroup(DX11RenderTargetGroup* pkRTG)
-{
-	if (m_spDeviceContext)
-	{
-		RenderTarget** ppkRenderTarget = pkRTG->GetRenderTargets();
-		ID3D11RenderTargetView** ppRTVs = new ID3D11RenderTargetView*[pkRTG->GetRTCount()];
-		for (size_t i = 0; i < pkRTG->GetRTCount(); i++)
-		{
-			ppkRTVs[i] = ((D3D11RenderTarget*)ppkRenderTarget[i])->GetRenderTargetView();
-		}
-		ID3D11DepthStencilView* pDepthStencilView = nullptr;
-		if (pkRTG->GetDepthStencil())
-		{
-			pDepthStencilView = pkRTG->GetDepthStencil()->GetDepthStencilView();
-		}
-
-		m_spDeviceContext->OMSetRenderTargets(pkRTG->GetRTCount(), ppkRTVs, pDepthStencilView);
-	}
-}
+//void SWE::DX11Renderer::SetRenderTargetGroup(DX11RenderTargetGroup* pkRTG)
+//{
+//	if (m_spDeviceContext)
+//	{
+//		RenderTarget** ppkRenderTarget = pkRTG->GetRenderTargets();
+//		ID3D11RenderTargetView** ppRTVs = new ID3D11RenderTargetView*[pkRTG->GetRTCount()];
+//		for (size_t i = 0; i < pkRTG->GetRTCount(); i++)
+//		{
+//			ppkRTVs[i] = ((D3D11RenderTarget*)ppkRenderTarget[i])->GetRenderTargetView();
+//		}
+//		ID3D11DepthStencilView* pDepthStencilView = nullptr;
+//		if (pkRTG->GetDepthStencil())
+//		{
+//			pDepthStencilView = pkRTG->GetDepthStencil()->GetDepthStencilView();
+//		}
+//
+//		m_spDeviceContext->OMSetRenderTargets(pkRTG->GetRTCount(), ppkRTVs, pDepthStencilView);
+//	}
+//}

@@ -25,6 +25,10 @@ namespace SWE
 			float r20, float r21, float r22);
 		~Matrix3() = default;
 
+		inline void SetR0(const float& r00, const float& r01, const float& r02){ _00 = r00; _01 = r01; _02 = r02; }
+		inline void SetR1(const float& r10, const float& r11, const float& r12) { _10 = r10; _11 = r11; _12 = r12; }
+		inline void SetR2(const float& r20, const float& r21, const float& r22) { _20 = r20; _21 = r21; _22 = r22; }
+
 		void Transpose();
 		void Invert();
 		Matrix3 GetTransposeMatrix3();
@@ -34,5 +38,7 @@ namespace SWE
 		void MakeRotationX(float theta);
 		void MakeRotationY(float theta);
 		void MakeRotationZ(float theta);
+
+		Matrix3 operator *(const Matrix3& matrix)const;
 	};
 }

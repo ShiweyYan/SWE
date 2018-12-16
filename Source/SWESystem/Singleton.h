@@ -5,19 +5,9 @@
 namespace SWE
 {
 	template <typename T>
-	class  Singleton : public MemObject
+	class  Singleton
 	{
 	public:
-
-		static T* CreateSingleton(void)
-		{
-			assert(!m_pSingleton);
-
-			m_pSingleton = new T();
-
-			return m_pSingleton;
-		}
-
 		static void Release()
 		{
 			if (m_pSingleton)
@@ -27,9 +17,12 @@ namespace SWE
 			}
 		}
 
-		static T* GetSingleton(void)
+		static T* Get(void)
 		{
-			assert(m_pSingleton);
+			if (m_pSingleton == nullptr)
+			{
+				m_pSingleton = new T;
+			}
 			return m_pSingleton;
 		}
 

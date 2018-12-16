@@ -135,21 +135,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Renderer\GpuResource.cpp" />
     <ClCompile Include="Renderer\GraphicBuffer.cpp" />
     <ClCompile Include="Renderer\Renderer.cpp" />
-    <ClCompile Include="Renderer\RenderFactory.cpp" />
     <ClCompile Include="Renderer\RenderState.cpp" />
-    <ClCompile Include="Renderer\RenderTarget.cpp" />
     <ClCompile Include="Renderer\RenderView.cpp" />
     <ClCompile Include="Renderer\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Renderer\GpuResource.h" />
     <ClInclude Include="Renderer\GraphicBuffer.h" />
     <ClInclude Include="Renderer\Renderer.h" />
     <ClInclude Include="Renderer\RendererDesc.h" />
-    <ClInclude Include="Renderer\RenderFactory.h" />
     <ClInclude Include="Renderer\RenderState.h" />
-    <ClInclude Include="Renderer\RenderTarget.h" />
     <ClInclude Include="Renderer\RenderView.h" />
     <ClInclude Include="Renderer\Texture.h" />
     <ClInclude Include="SWECore.h" />

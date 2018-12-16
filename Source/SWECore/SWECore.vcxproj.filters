@@ -9,13 +9,7 @@
     <ClCompile Include="Renderer\Renderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer\RenderFactory.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="Renderer\RenderState.cpp">
-      <Filter>Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer\RenderTarget.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Renderer\Texture.cpp">
@@ -27,6 +21,9 @@
     <ClCompile Include="Renderer\GraphicBuffer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Renderer\GpuResource.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Renderer\Renderer.h">
@@ -35,13 +32,7 @@
     <ClInclude Include="Renderer\RendererDesc.h">
       <Filter>Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer\RenderFactory.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="Renderer\RenderState.h">
-      <Filter>Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer\RenderTarget.h">
       <Filter>Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Renderer\Texture.h">
@@ -52,6 +43,9 @@
       <Filter>Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Renderer\GraphicBuffer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\GpuResource.h">
       <Filter>Renderer</Filter>
     </ClInclude>
   </ItemGroup>

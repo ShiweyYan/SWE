@@ -128,21 +128,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DX11DepthStencilBuffer.cpp" />
     <ClCompile Include="DX11Renderer.cpp" />
     <ClCompile Include="DX11RenderState.cpp" />
-    <ClCompile Include="DX11RenderTarget.cpp" />
-    <ClCompile Include="DX11RenderTexture.cpp" />
     <ClCompile Include="DX11RenderView.cpp" />
     <ClCompile Include="DX11Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DX11DepthStencilBuffer.h" />
     <ClInclude Include="DX11Renderer.h" />
     <ClInclude Include="DX11RendererUtility.h" />
     <ClInclude Include="DX11RenderState.h" />
-    <ClInclude Include="DX11RenderTarget.h" />
-    <ClInclude Include="DX11RenderTexture.h" />
     <ClInclude Include="DX11RenderView.h" />
     <ClInclude Include="DX11Texture.h" />
     <ClInclude Include="DX11TypeDefine.h" />

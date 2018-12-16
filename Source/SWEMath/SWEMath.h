@@ -5,6 +5,7 @@
 #else 
 #define SWEMATH_API __declspec(dllimport) 
 #endif
+#define SWE_SSE
 
 #define EPSILON_E3 (float)(1E-3) 
 #define EPSILON_E4 (float)(1E-4) 

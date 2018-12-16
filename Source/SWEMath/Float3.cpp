@@ -1,5 +1,6 @@
 #include "Float3.h"
 #include <math.h>
+#include <assert.h>
 
 using namespace SWE;
 
@@ -18,6 +19,7 @@ float SWE::Float3::Length()
 void SWE::Float3::Normalize()
 {
 	float length = Length();
+	assert(length);
 	x = x / length;
 	y = y / length;
 	z = z / length;
@@ -46,6 +48,7 @@ SWE::Float3 SWE::Float3::operator*(float f) const
 
 SWE::Float3 SWE::Float3::operator/(float f) const
 {
+	assert(f);
 	Float3 result(x / f, y / f, z / f);
 
 	return result;
@@ -110,6 +113,7 @@ SWE::Float3& SWE::Float3::operator+=(float f)
 
 SWE::Float3& SWE::Float3::operator/=(float f)
 {
+	assert(f);
 	x /= f;
 	y /= f;
 	z /= f;

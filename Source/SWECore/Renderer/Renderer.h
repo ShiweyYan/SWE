@@ -2,7 +2,6 @@
 #include "SWECore/SWECore.h"
 #include "SWECore/Renderer/RendererDesc.h"
 #include "SWESystem/Object.h"
-#include "SWESystem/Singleton.h"
 
 namespace SWE
 {
@@ -12,17 +11,22 @@ namespace SWE
 		RT_D3D11 = 1,
 	};
 
-	class SWECORE_API Renderer : public Object, public Singleton<Renderer>
+	class SWECORE_API Renderer: public Object
 	{
 		DECLEAR_RTTI
-		friend Singleton<Renderer>;
 	public:
-		virtual void Init(RendererDesc desc) {};
 		virtual RENDERER_TYPE GetType() { return RT_NONE; };
 
+		static Renderer* Create(const RendererDesc& desc);
+		static bool Release();
+		static Renderer* Get() { return m_pRenderer; }
+
 	protected:
-		Renderer() = default;
-		virtual ~Renderer() {}
+		Renderer();
+		virtual ~Renderer() = default;
+		virtual void Init(RendererDesc desc) {};
+
+		static Renderer* m_pRenderer;
 	};
 
 	SMART_POINTER(Renderer)

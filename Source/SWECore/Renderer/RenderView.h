@@ -3,6 +3,7 @@
 
 #include "SWECore/SWECore.h"
 #include "SWESystem/Object.h"
+#include "Texture.h"
 
 namespace SWE
 {
@@ -11,8 +12,11 @@ namespace SWE
 		DECLEAR_RTTI
 
 	public:
-		RenderView() = default;
+		RenderView(Texture* pTexture);
 		virtual ~RenderView() = default;
+
+	protected:
+		TexturePtr m_spTexture;
 	};
 
 	SMART_POINTER(RenderView)

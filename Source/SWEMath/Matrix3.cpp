@@ -1,6 +1,7 @@
 #include "Matrix3.h"
 #include <math.h>
 #include <assert.h>
+#include <xmmintrin.h>
 
 using namespace SWE;
 
@@ -136,4 +137,53 @@ void SWE::Matrix3::MakeRotationZ(float theta)
 	_00 = fCos;	_01 = fSin;	 _02 = 0;
 	_10 = -fSin;	_11 = fCos;	 _12 = 0;
 	_20 = 0;		_21 = 0;		_22 = 1;
+}
+
+SWE::Matrix3 SWE::Matrix3::operator*(const Matrix3& matrix) const
+{
+	Matrix3 result;
+	result.M[0][0] = 0;
+	result.M[1][1] = 0;
+	result.M[2][2] = 0;
+#ifdef SWE_SSE
+	{
+		__m128 _v1 = _mm_set_ps(M[0][0], M[0][1], M[0][2], 0.0f);
+		__m128 _v2 = _mm_set_ps(M[1][0], M[1][1], M[1][2], 0.0f);
+		__m128 _v3 = _mm_set_ps(M[2][0], M[2][1], M[2][2], 0.0f);
+
+		__m128 _s1 = _mm_set_ps(matrix.M[0][0], matrix.M[1][0], matrix.M[2][0], 0.0f);
+		__m128 _s2 = _mm_set_ps(matrix.M[0][1], matrix.M[1][1], matrix.M[2][1], 0.0f);
+		__m128 _s3 = _mm_set_ps(matrix.M[0][2], matrix.M[1][2], matrix.M[2][2], 0.0f);
+
+		__m128 _v = _mm_mul_ps(_v1, _s1);
+		result.M[0][0] = _v.m128_f32[3] + _v.m128_f32[2] + _v.m128_f32[1];
+		_v = _mm_mul_ps(_v1, _s2);
+		result.M[0][1] = _v.m128_f32[3] + _v.m128_f32[2] + _v.m128_f32[1];
+		_v = _mm_mul_ps(_v1, _s3);
+		result.M[0][2] = _v.m128_f32[3] + _v.m128_f32[2] + _v.m128_f32[1];
+
+		_v = _mm_mul_ps(_v2, _s1);
+		result.M[1][0] = _v.m128_f32[3] + _v.m128_f32[2] + _v.m128_f32[1];
+		_v = _mm_mul_ps(_v2, _s2);
+		result.M[1][1] = _v.m128_f32[3] + _v.m128_f32[2] + _v.m128_f32[1];
+		_v = _mm_mul_ps(_v2, _s3);
+		result.M[1][2] = _v.m128_f32[3] + _v.m128_f32[2] + _v.m128_f32[1];
+
+		_v = _mm_mul_ps(_v3, _s1);
+		result.M[2][0] = _v.m128_f32[3] + _v.m128_f32[2] + _v.m128_f32[1];
+		_v = _mm_mul_ps(_v3, _s2);
+		result.M[2][1] = _v.m128_f32[3] + _v.m128_f32[2] + _v.m128_f32[1];
+		_v = _mm_mul_ps(_v3, _s3);
+		result.M[2][2] = _v.m128_f32[3] + _v.m128_f32[2] + _v.m128_f32[1];
+
+}
+#else
+	{
+		for (unsigned char i = 0; i < 3; i++)
+			for (unsigned char j = 0; j < 3; j++)
+				for (unsigned int k = 0; k < 3; k++)
+					result.M[i][j] += M[i][k] * matrix.M[k][j];
+	}
+#endif
+	return result;
 }

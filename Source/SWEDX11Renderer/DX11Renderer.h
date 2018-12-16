@@ -10,17 +10,21 @@ namespace SWE
 	{
 		DECLEAR_RTTI
 	public:
-		virtual void Init(RendererDesc renderDesc);
+		
 		virtual RENDERER_TYPE GetType()const { return RT_D3D11; }
 
 		ID3D11Device* GetDevice() const { return m_spDevice.get(); }
 		ID3D11DeviceContext* GetDeviceContext() const { return m_spDeviceContext.get(); }
 
-		void SetRenderTargetGroup(DX11RenderTargetGroup* pkRTG);
+		//void SetRenderTargetGroup(DX11RenderTargetGroup* pkRTG);
+
+		static Renderer* Create(const RendererDesc& desc);
+		static DX11Renderer* Get() { return DYNAMIC_CAST(DX11Renderer, m_pRenderer); }
 
 	protected:
 		DX11Renderer();
 		virtual ~DX11Renderer();
+		virtual void Init(RendererDesc renderDesc);
 
 	private:
 		D3D_FEATURE_LEVEL m_eFeatureLevel;
@@ -33,7 +37,7 @@ namespace SWE
 		IDXGISwapChainPtr m_spSwapChain;
 		DXGI_SWAP_CHAIN_DESC m_kSwapChainDesc;
 
-		DX11RenderTargetGroup* m_pkRenderTargetGroup;
+		//DX11RenderTargetGroup* m_pkRenderTargetGroup;
 	};
 
 	SMART_POINTER(DX11Renderer)

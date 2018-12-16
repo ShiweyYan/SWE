@@ -21,21 +21,6 @@ namespace SWE
 			EFM_WIREFRAME,
 		};
 
-		struct RasterizerState
-		{
-			ENUM_FILL_MODE FillMode;
-			ENUM_CULL_MODE CullMode;
-			bool				FrontCounterClockWise;
-			bool            FrontCounterClockwise;
-			int             DepthBias;
-			float           DepthBiasClamp;
-			float           SlopeScaledDepthBias;
-			bool            DepthClipEnable;
-			bool            ScissorEnable;
-			bool            MultisampleEnable;
-			bool            AntialiasedLineEnable;
-		};
-
 		enum ENUM_BLEND
 		{
 			EB_BLEND_ZERO,
@@ -66,24 +51,6 @@ namespace SWE
 			EBO_BLEND_OP_MAX
 		};
 
-		struct BlendState
-		{
-			struct RTBlendState
-			{
-				bool           BlendEnable;
-				ENUM_BLEND    SrcBlend;
-				ENUM_BLEND    DestBlend;
-				ENUM_BLEND_OP BlendOp;
-				ENUM_BLEND    SrcBlendAlpha;
-				ENUM_BLEND    DestBlendAlpha;
-				ENUM_BLEND_OP BlendOpAlpha;
-				uint8_t          RenderTargetWriteMask;
-			};
-			bool m_bAlphaToCoverageEnable;
-			bool m_bIndependentBlendEnable;
-			RTBlendState m_kRTBlendStates[8];
-		};
-
 		enum ENUM_COMPARISON_FUNC
 		{
 			ECF_COMPARISON_NEVER,
@@ -108,7 +75,40 @@ namespace SWE
 			ESO_STENCIL_OP_DECR
 		};
 
-		struct ENUM_DEPTH_STENCILOP_DESC {
+		struct RasterizerState
+		{
+			ENUM_FILL_MODE FillMode;
+			ENUM_CULL_MODE CullMode;
+			bool				FrontCounterClockWise;
+			bool            FrontCounterClockwise;
+			int             DepthBias;
+			float           DepthBiasClamp;
+			float           SlopeScaledDepthBias;
+			bool            DepthClipEnable;
+			bool            ScissorEnable;
+			bool            MultisampleEnable;
+			bool            AntialiasedLineEnable;
+		};
+
+		struct BlendState
+		{
+			struct RTBlendState
+			{
+				bool           BlendEnable;
+				ENUM_BLEND    SrcBlend;
+				ENUM_BLEND    DestBlend;
+				ENUM_BLEND_OP BlendOp;
+				ENUM_BLEND    SrcBlendAlpha;
+				ENUM_BLEND    DestBlendAlpha;
+				ENUM_BLEND_OP BlendOpAlpha;
+				uint8_t          RenderTargetWriteMask;
+			};
+			bool m_bAlphaToCoverageEnable;
+			bool m_bIndependentBlendEnable;
+			RTBlendState m_kRTBlendStates[8];
+		};
+
+		struct DepthStencilOPDesc {
 			ENUM_STENCIL_OP      StencilFailOp;
 			ENUM_STENCIL_OP      StencilDepthFailOp;
 			ENUM_STENCIL_OP      StencilPassOp;
@@ -123,8 +123,8 @@ namespace SWE
 			bool      StencilEnable;
 			uint8_t    StencilReadMask;
 			uint8_t    StencilWriteMask;
-			ENUM_DEPTH_STENCILOP_DESC FrontFace;
-			ENUM_DEPTH_STENCILOP_DESC BackFace;
+			DepthStencilOPDesc FrontFace;
+			DepthStencilOPDesc BackFace;
 		};
 
 		RenderState();
