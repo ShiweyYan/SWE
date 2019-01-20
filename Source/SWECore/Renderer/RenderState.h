@@ -79,7 +79,6 @@ namespace SWE
 		{
 			ENUM_FILL_MODE FillMode;
 			ENUM_CULL_MODE CullMode;
-			bool				FrontCounterClockWise;
 			bool            FrontCounterClockwise;
 			int             DepthBias;
 			float           DepthBiasClamp;
@@ -131,11 +130,56 @@ namespace SWE
 		virtual ~RenderState();
 
 		//渲染器的派生类中实现
-		virtual void ApplyRasterizerState() {}
-		virtual void ApplyBlendState() {}
-		virtual void ApplyDepthStencilState() {}
+		//virtual void ApplyRasterizerState() {}
+		//virtual void ApplyBlendState() {}
+		//virtual void ApplyDepthStencilState() {}
 
 		//各种设置和获取的接口,后边用的什么补什么吧...有点儿多
+		//**Depth**//
+		virtual void SetDepthTestEnable(bool bIsEnable) = 0;
+		virtual void SetDepthWriteEnable(bool bIsEnable) = 0;
+		virtual void SetDepthFunc(ENUM_COMPARISON_FUNC eComparisonFunc) = 0;
+		//**Stencil**//
+		virtual void SetStencilTestEnable(bool bIsEnable) = 0;
+		virtual void SetStencilReadMask(uint8_t uiMask) = 0;
+		virtual void SetStencilWriteMask(uint8_t uiMask) = 0;
+
+		virtual void SetFrontFaceStencilFailOp(ENUM_STENCIL_OP eStencilOP) = 0;
+		virtual void SetFrontFaceStencilDepthFailOp(ENUM_STENCIL_OP eStencilOP) = 0;
+		virtual void SetFrontFaceStencilPassOp(ENUM_STENCIL_OP eStencilOP) = 0;
+		virtual void SetFrontFaceStencilFunc(ENUM_COMPARISON_FUNC eComparisonFunc) = 0;
+
+		virtual void SetBackFaceStencilFailOp(ENUM_STENCIL_OP eStencilOP) = 0;
+		virtual void SetBackFaceStencilDepthFailOp(ENUM_STENCIL_OP eStencilOP) = 0;
+		virtual void SetBackFaceStencilPassOp(ENUM_STENCIL_OP eStencilOP) = 0;
+		virtual void SetBackFaceStencilFunc(ENUM_COMPARISON_FUNC eComparisonFunc) = 0;
+
+		//**Blend**//
+		virtual void SetAlphaToCoverageEnable(bool bAlphaToCoverageEnable) = 0;
+		virtual void SetIndependentBlendEnable(bool bIndependentBlendEnable) = 0;
+		virtual void SetBlendEnable(bool bBlendEnable) = 0;
+		virtual void SetSrcBlend(ENUM_BLEND eSourceBlend) = 0;
+		virtual void SetDestBlend(ENUM_BLEND eDestBlend) = 0;
+		virtual void SetBlendOp(ENUM_BLEND_OP eBlendOp) = 0;
+		virtual void SetSrcBlendAlpha(ENUM_BLEND eSourceBlend) = 0;
+		virtual void SetDestBlendAlpha(ENUM_BLEND eDestBlend) = 0;
+		virtual void SetBlendOpAlpha(ENUM_BLEND_OP eBlendOp) = 0;
+		virtual void SetRenderTargetWriteMask(uint8_t uiRTWriteMask) = 0;
+
+		//**Rasterizer**//
+		virtual void SetFillMode(ENUM_FILL_MODE eFillMode) = 0;
+		virtual void SetCullMode(ENUM_CULL_MODE eCullMode) = 0;
+		virtual void SetFrontCounterClockWise(bool bIsFrontCounterClockwise) = 0;
+		virtual void SetDepthBias(int depthBias) = 0;
+		virtual void SetDepthBiasClamp(float depthBiasClamp) = 0;
+		virtual void SetSlopeScaledDepthBias(float slopeScaledDepthBias) = 0;
+		virtual void SetDepthClipEnable(bool bDepthClipEnable) = 0;
+		virtual void SetScissorEnable(bool bScissorEnable) = 0;
+		virtual void SetMultisampleEnable(bool bMultisampleEnable) = 0;
+		virtual void SetAntialiasedLineEnable(bool bAntialiasedLineEnable) = 0;
+
+		//**Sampler**//
+		
 
 	private:
 		RasterizerState m_kRasterizerState;
